@@ -1,40 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, uesRef } from 'react';
+import { useState } from 'react';
 import Another from './Another';
+import logo from './logo.svg';
+import '../App.css';
 
 function App() {
-  const name = 'Muath';
   const [count, setCount] = useState(0);
+
   function decrement() {
-    // setCount(count-1);
-    setCount(preCount => preCount - 1);
+    setCount(prevCount => prevCount - 1);
   }
-  function encrement() {
-    // setCount(count+1);
-    setCount(preCount => preCount + 1);
+
+  function increment() {
+    setCount(prevCount => prevCount + 1);
   }
+
   const someStyle = {
     background: 'blue',
-    color: 'red',
+    color: 'white',
     fontSize: '28px',
     fontWeight: 'bold',
   };
+
   return (
     <div className="App">
-      <Another name="Muath" />
       <header className="App-header">
+        <Another name="Andre" />
         <div>
           <span>{count}</span>
-          <button onClick={encrement}>+</button>
           <button onClick={decrement}>-</button>
+          <button onClick={increment}>+</button>
         </div>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {true && <p style={{ background: 'green' }}>{2 + 2}</p>}
-        <p style={someStyle}>{2 + 5}</p>
+        {true && <p style={someStyle}>{3 + 2}</p>}
         <a
           className="App-link"
           href="https://reactjs.org"
