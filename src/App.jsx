@@ -1,27 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, uesRef } from 'react';
 import Another from './Another';
 
 function App() {
+  const name = 'Muath';
   const [count, setCount] = useState(0);
   function decrement() {
     // setCount(count-1);
-    setCount(preCount => preCount - 1)
+    setCount(preCount => preCount - 1);
   }
   function encrement() {
     // setCount(count+1);
-    setCount(preCount => preCount + 1)
+    setCount(preCount => preCount + 1);
   }
   const someStyle = {
     background: 'blue',
     color: 'red',
     fontSize: '28px',
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  };
   return (
     <div className="App">
-      <Another name="Muath"/>
+      <Another name="Muath" />
       <header className="App-header">
         <div>
           <span>{count}</span>
@@ -32,10 +33,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {true &&
-          <p style={{ background: 'green' }}>{2 + 2}</p>
-        }
-        <p style={ someStyle }>{2 + 5}</p>
+        {true && <p style={{ background: 'green' }}>{2 + 2}</p>}
+        <p style={someStyle}>{2 + 5}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
