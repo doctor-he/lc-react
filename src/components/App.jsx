@@ -59,6 +59,15 @@ function App() {
   const deleteTodo = id => {
     setTodos([...todos].filter(todo => todo.id !== id));
   };
+
+  const completeTodo = id => {
+    const updatedTodo = todos.map(todo => {
+      todo.isComplete = todo.id == id ? !todo.isComplete : todo.isComplete;
+      return todo;
+    });
+
+    setTodos(updatedTodo);
+  };
   return (
     <div className="todo-app-container">
       <div className="todo-app">
@@ -78,8 +87,18 @@ function App() {
             /** [FIXED] react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop. */
             <li key={todo.id} className="todo-item-container">
               <div className="todo-item">
-                <input type="checkbox" />
-                <span className="todo-item-label">{todo.title}</span>
+                <input
+                  onChange={() => completeTodo(todo.id)}
+                  type="checkbox"
+                  checked={`${todo.isComplete === true ? 'checked' : ''}`}
+                />
+                <span
+                  className={`todo-item-label ${
+                    todo.isComplete ? 'line-through' : ''
+                  }`}
+                >
+                  {todo.title}
+                </span>
                 {/* <input type="text" className="todo-item-input" value="Finish React Series" /> */}
               </div>
               <button onClick={() => deleteTodo(todo.id)} className="x-button">

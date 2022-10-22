@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import './index.css';
 import App from './components/App';
-import AppClass from './components/AppClass';
+// import AppClass from './components/AppClass';
 import reportWebVitals from './reportWebVitals';
 
 /** [FIXED] https://stackoverflow.com/questions/71668256/deprecation-notice-reactdom-render-is-no-longer-supported-in-react-18 */
