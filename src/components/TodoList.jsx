@@ -1,4 +1,11 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
+
+// TodoList.PropTypes = {
+//     todos: PropTypes.array.isRequired,
+//     setTodos: PropTypes.func.isRequired,
+// };
+// npm install --save prop-types
 
 function TodoList(props) {
   const completeTodo = id => {
