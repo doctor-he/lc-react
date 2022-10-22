@@ -1,7 +1,7 @@
 import '../reset.css';
 import '../App.css';
 import { useState } from 'react';
-import AppClass from './AppClass';
+// import AppClass from './AppClass';
 import NoTodos from './NoTodos';
 import FormTodo from './FormTodo';
 import TodoList from './TodoList';

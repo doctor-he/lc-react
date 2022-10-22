@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ClearCompletedTodo from './ClearCompletedTodo';
+import CompleteAllTodos from './CompleteAllTodos';
+import RemainingTodoItems from './RemainingTodoItems';
+import TodosFilter from './TodosFilter';
 // import PropTypes from 'prop-types';
 
 // TodoList.PropTypes = {
@@ -8,6 +12,10 @@ import React from 'react';
 // npm install --save prop-types
 
 function TodoList(props) {
+  const [filter, setFilter] = useState('all');
+  //   const [filter, setFilter] = useState('active');
+  //   const [filter, setFilter] = useState('completed');
+
   const completeTodo = id => {
     const updatedTodo = props.todos.map(todo => {
       todo.isComplete = todo.id === id ? !todo.isComplete : todo.isComplete;
@@ -53,10 +61,35 @@ function TodoList(props) {
     props.setTodos([...props.todos].filter(todo => todo.id !== id));
   };
 
+  function clearCompleted() {
+    props.setTodos([...props.todos].filter(todo => !todo.isComplete));
+  }
+
+  function completeAllTodos() {
+    const updatedTodo = props.todos.map(todo => {
+      todo.isComplete = true;
+      return todo;
+    });
+
+    props.setTodos(updatedTodo);
+  }
+
+  function todosFiltered(filter) {
+    return props.todos.filter(todo => {
+      if (filter === 'completed') {
+        return todo.isComplete;
+      } else if (filter === 'active') {
+        return !todo.isComplete;
+      } else {
+        return todo;
+      }
+    });
+  }
+
   return (
     <>
       <ul className="todo-list">
-        {props.todos.map((todo, index) => (
+        {todosFiltered(filter).map((todo, index) => (
           /** [FIXED] react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop. */
           <li key={todo.id} className="todo-item-container">
             <div className="todo-item">
@@ -111,23 +144,15 @@ function TodoList(props) {
       </ul>
 
       <div className="check-all-container">
-        <div>
-          <div className="button">Check All</div>
-        </div>
+        <CompleteAllTodos completeAllTodos={completeAllTodos} />
 
-        <span>3 items remaining</span>
+        <RemainingTodoItems todos={props.todos} />
       </div>
 
       <div className="other-buttons-container">
+        <TodosFilter setFilter={setFilter} filter={filter} />
         <div>
-          <button className="button filter-button filter-button-active">
-            All
-          </button>
-          <button className="button filter-button">Active</button>
-          <button className="button filter-button">Completed</button>
-        </div>
-        <div>
-          <button className="button">Clear completed</button>
+          <ClearCompletedTodo clearCompleted={clearCompleted} />
         </div>
       </div>
     </>
