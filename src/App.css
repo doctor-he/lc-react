@@ -135,3 +135,23 @@ h2 {
   padding-top: 16px;
   border-top: 1px solid lightgray;
 }
+
+.no-todos-container {
+  width: 300px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-todos-container p {
+  margin-top: 20px;
+  text-align: center;
+  color: #6B7280;
+}
+
+.no-todos-container svg {
+  margin-top: 20px;
+  text-align: center;
+  color: #6B7280;
+}
