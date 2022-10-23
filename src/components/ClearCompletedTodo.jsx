@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// ClearCompletedTodo.PropTypes = {
-//     clearCompleted: PropTypes.func.isRequired,
-// };
+ClearCompletedTodo.PropType = {
+    clearCompleted: PropTypes.func.isRequired,
+};
 // npm install --save prop-types
 
 function ClearCompletedTodo(props) {

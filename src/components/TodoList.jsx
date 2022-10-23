@@ -3,12 +3,12 @@ import ClearCompletedTodo from './ClearCompletedTodo';
 import CompleteAllTodos from './CompleteAllTodos';
 import RemainingTodoItems from './RemainingTodoItems';
 import TodosFilter from './TodosFilter';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// TodoList.PropTypes = {
-//     todos: PropTypes.array.isRequired,
-//     setTodos: PropTypes.func.isRequired,
-// };
+TodoList.PropType = {
+    todos: PropTypes.array.isRequired,
+    setTodos: PropTypes.func.isRequired,
+};
 // npm install --save prop-types
 
 function TodoList(props) {

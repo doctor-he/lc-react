@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// CompleteAllTodos.PropTypes = {
-//     completeAllTodos: PropTypes.func.isRequired,
-// };
+CompleteAllTodos.PropType = {
+    completeAllTodos: PropTypes.func.isRequired,
+};
 // npm install --save prop-types
 
 function CompleteAllTodos(props) {

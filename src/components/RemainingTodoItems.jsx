@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// RemainingTodoItems.PropTypes = {
-//     todos: PropTypes.array.isRequired,
-// };
+RemainingTodoItems.PropType = {
+    todos: PropTypes.array.isRequired,
+};
 // npm install --save prop-types
 
 function RemainingTodoItems(props) {

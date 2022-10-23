@@ -1,10 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// TodosFilter.PropTypes = {
-//     setFilter: PropTypes.func.isRequired,
-//     filter: PropTypes.string.isRequired,
-// };
+TodosFilter.PropType = {
+    setFilter: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
+};
 // npm install --save prop-types
 
 function TodosFilter(props) {
