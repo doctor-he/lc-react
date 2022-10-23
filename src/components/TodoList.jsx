@@ -4,10 +4,11 @@ import CompleteAllTodos from './CompleteAllTodos';
 import RemainingTodoItems from './RemainingTodoItems';
 import TodosFilter from './TodosFilter';
 import PropTypes from 'prop-types';
+import UnCompleteAllTodos from './UnCompleteAllTodos';
 
 TodoList.PropType = {
-    todos: PropTypes.array.isRequired,
-    setTodos: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired,
+  setTodos: PropTypes.func.isRequired,
 };
 // npm install --save prop-types
 
@@ -68,6 +69,14 @@ function TodoList(props) {
   function completeAllTodos() {
     const updatedTodo = props.todos.map(todo => {
       todo.isComplete = true;
+      return todo;
+    });
+
+    props.setTodos(updatedTodo);
+  }
+  function unCompleteAllTodos() {
+    const updatedTodo = props.todos.map(todo => {
+      todo.isComplete = false;
       return todo;
     });
 
@@ -144,9 +153,13 @@ function TodoList(props) {
       </ul>
 
       <div className="check-all-container">
-        <CompleteAllTodos completeAllTodos={completeAllTodos} />
-
-        <RemainingTodoItems todos={props.todos} />
+        <div className='checks'>
+          <CompleteAllTodos completeAllTodos={completeAllTodos} />
+          <UnCompleteAllTodos unCompleteAllTodos={unCompleteAllTodos} />
+        </div>
+        <div>
+          <RemainingTodoItems todos={props.todos} />
+        </div>
       </div>
 
       <div className="other-buttons-container">

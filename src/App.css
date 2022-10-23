@@ -126,6 +126,16 @@ h2 {
   border-top: 1px solid lightgray;
 }
 
+.check-all-container .checks {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.check-all-container .checks div {
+  margin-right: 2px;
+}
+
 .other-buttons-container {
   display: flex;
   justify-content: space-between;
