@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 TodosFilter.PropType = {
-    setFilter: PropTypes.func.isRequired,
-    filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 // npm install --save prop-types
 
 function TodosFilter(props) {
+  const [active, setActive] = useState('');
+  const toggleActive = () => {
+    return active === '' ? setActive('active') : setActive('');
+  };
+
   return (
-    <div>
+    <div className={`fab ${active}`}>
+      <button className={`plus filter-button`} onClick={toggleActive} title="filter">+</button>
       <button
-        className={`button filter-button ${props.filter === 'all' ? 'filter-button-active' : ''}`}
+        className={`button filter-button ${
+          props.filter === 'all' ? 'filter-button-active' : ''
+        }`}
         onClick={() => {
           props.setFilter('all');
         }}
@@ -19,7 +27,9 @@ function TodosFilter(props) {
         All
       </button>
       <button
-        className={`button filter-button ${props.filter === 'active' ? 'filter-button-active' : ''}`}
+        className={`button filter-button ${
+          props.filter === 'active' ? 'filter-button-active' : ''
+        }`}
         onClick={() => {
           props.setFilter('active');
         }}
@@ -27,7 +37,9 @@ function TodosFilter(props) {
         Active
       </button>
       <button
-        className={`button filter-button ${props.filter === 'completed' ? 'filter-button-active' : ''}`}
+        className={`button filter-button ${
+          props.filter === 'completed' ? 'filter-button-active' : ''
+        }`}
         onClick={() => {
           props.setFilter('completed');
         }}
