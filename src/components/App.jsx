@@ -11,7 +11,7 @@ function App() {
     {
       id: 1,
       title: 'Finish React Series',
-      isComplete: false,
+      isComplete: true,
       isEditing: false,
     },
     {
@@ -44,15 +44,31 @@ function App() {
 
   return (
     <div className="todo-app-container">
-      <div className="todo-app">
-        <h2>Todo App</h2>
-        <FormTodo addTodo={addTodo} />
+      <div>
+        <div className="todo-app">
+          <h2>Todo App</h2>
+        </div>
+      </div>
+      <div>
+        <div className="todo-app">
+          <FormTodo addTodo={addTodo} />
 
-        {todos.length > 0 ? (
-          <TodoList todos={todos} setTodos={setTodos} />
-        ) : (
-          <NoTodos />
-        )}
+          {todos.length > 0 ? (
+            <TodoList todos={todos} setTodos={setTodos} />
+          ) : (
+            <NoTodos />
+          )}
+        </div>
+      </div>
+      <div>
+        <div className="todo-app text-center">
+          <p className={`footer`}>
+            copywrite &copy;{' '}
+            <a className={`link`} href="muathye.com">
+              muathye.com
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
